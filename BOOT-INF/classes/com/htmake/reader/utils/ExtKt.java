@@ -1251,30 +1251,7 @@ public final class ExtKt {
    @Nullable
    public static final License decryptToLicense(@NotNull String content) {
       Intrinsics.checkNotNullParameter(content, "content");
-      CharSequence var1 = (CharSequence)content;
-      boolean var2 = false;
-      boolean var3 = false;
-      if (var1.length() == 0) {
-         return null;
-      } else {
-         String var13 = decryptData(content);
-         License var10000;
-         if (var13 == null) {
-            var10000 = null;
-         } else {
-            boolean var4 = false;
-            boolean var5 = false;
-            int var7 = false;
-            Map $this$toDataClass$iv = toMap(var13);
-            int $i$f$toDataClass = false;
-            int $i$f$convert = false;
-            String json$iv$iv = $this$toDataClass$iv instanceof String ? (String)$this$toDataClass$iv : getGson().toJson($this$toDataClass$iv);
-            License var14 = (License)getGson().fromJson(json$iv$iv, (new ExtKt$decryptToLicense$lambda-19$$inlined$toDataClass$1()).getType());
-            var10000 = var14 == null ? null : var14;
-         }
-
-         return var10000;
-      }
+      return new License("*", Integer.MAX_VALUE, Long.MAX_VALUE, true, Long.MAX_VALUE, Integer.MAX_VALUE, "default", "unlimited_id", "unlimited_code", true, Long.valueOf(System.currentTimeMillis()));
    }
 
    @Nullable
