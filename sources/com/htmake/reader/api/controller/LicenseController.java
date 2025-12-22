@@ -150,18 +150,15 @@ public final class LicenseController extends BaseController {
         return ReturnData.setData$default(returnData, MapsKt.mapOf(TuplesKt.to("license", license)), null, 2, null);
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:7:0x0027  */
-    @org.jetbrains.annotations.Nullable
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct code enable 'Show inconsistent code' option in preferences
-    */
-    public final java.lang.Object importLicense(@org.jetbrains.annotations.NotNull io.vertx.ext.web.RoutingContext r13, @org.jetbrains.annotations.NotNull kotlin.coroutines.Continuation<? super kotlin.Unit> r14) throws java.lang.Throwable {
-        /*
-            Method dump skipped, instructions count: 422
-            To view this dump change 'Code comments level' option to 'DEBUG'
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.htmake.reader.api.controller.LicenseController.importLicense(io.vertx.ext.web.RoutingContext, kotlin.coroutines.Continuation):java.lang.Object");
+    @Nullable
+    public final Object importLicense(@NotNull RoutingContext context, @NotNull Continuation<? super Unit> $completion) {
+        ReturnData returnData = new ReturnData();
+        String string = context.getBodyAsJson().getString("content");
+        String content = string == null ? "" : string;
+        ExtKt.saveStorage(new String[]{"data", "license"}, content, false, ".key");
+        License license = ExtKt.decryptToLicense(content);
+        VertExtKt.success(context, ReturnData.setData$default(returnData, MapsKt.mapOf(TuplesKt.to("license", license)), null, 2, null));
+        return Unit.INSTANCE;
     }
 
     /* compiled from: LicenseController.kt */
@@ -445,42 +442,19 @@ public final class LicenseController extends BaseController {
         return ReturnData.setData$default(returnData, license, null, 2, null);
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:44:0x0144  */
-    @org.jetbrains.annotations.Nullable
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct code enable 'Show inconsistent code' option in preferences
-    */
-    public final java.lang.Object activateLicense(@org.jetbrains.annotations.NotNull io.vertx.ext.web.RoutingContext r8, @org.jetbrains.annotations.NotNull kotlin.coroutines.Continuation<? super com.htmake.reader.api.ReturnData> r9) throws java.security.spec.InvalidKeySpecException, java.io.IOException {
-        /*
-            Method dump skipped, instructions count: 699
-            To view this dump change 'Code comments level' option to 'DEBUG'
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.htmake.reader.api.controller.LicenseController.activateLicense(io.vertx.ext.web.RoutingContext, kotlin.coroutines.Continuation):java.lang.Object");
+    @Nullable
+    public final Object activateLicense(@NotNull RoutingContext context, @NotNull Continuation<? super ReturnData> $completion) {
+         return ReturnData.setData$default(new ReturnData(), MapsKt.mapOf(TuplesKt.to("key", "active")), null, 2, null);
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:27:0x0126  */
-    @org.jetbrains.annotations.Nullable
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct code enable 'Show inconsistent code' option in preferences
-    */
-    public final java.lang.Object isLicenseValid(@org.jetbrains.annotations.NotNull io.vertx.ext.web.RoutingContext r8, @org.jetbrains.annotations.NotNull kotlin.coroutines.Continuation<? super com.htmake.reader.api.ReturnData> r9) throws java.security.spec.InvalidKeySpecException, java.io.IOException {
-        /*
-            Method dump skipped, instructions count: 733
-            To view this dump change 'Code comments level' option to 'DEBUG'
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.htmake.reader.api.controller.LicenseController.isLicenseValid(io.vertx.ext.web.RoutingContext, kotlin.coroutines.Continuation):java.lang.Object");
+    @Nullable
+    public final Object isLicenseValid(@NotNull RoutingContext context, @NotNull Continuation<? super ReturnData> $completion) {
+        return ReturnData.setData$default(new ReturnData(), MapsKt.mapOf(TuplesKt.to("isValid", Boolean.TRUE)), null, 2, null);
     }
 
-    /* JADX WARN: Type inference failed for: r1v3, types: [T, java.lang.String] */
     @Nullable
     public final Object checkLicense(@NotNull License license, @NotNull Continuation<? super Unit> $completion) {
-        CoroutineExceptionHandler exceptionHandler = new LicenseController$checkLicense$$inlined$CoroutineExceptionHandler$1(CoroutineExceptionHandler.Key);
-        Ref.ObjectRef checkUrl = new Ref.ObjectRef();
-        checkUrl.element = Intrinsics.stringPlus("https://r.htmake.com/reader3/isLicenseValid?id=", license.getId());
-        Job jobLaunch$default = BuildersKt__Builders_commonKt.launch$default(this, new MDCContext(null, 1, null).plus(Dispatchers.getIO()).plus(exceptionHandler), null, new AnonymousClass2(checkUrl, null), 2, null);
-        return jobLaunch$default == IntrinsicsKt.getCOROUTINE_SUSPENDED() ? jobLaunch$default : Unit.INSTANCE;
+        return Unit.INSTANCE;
     }
 
     /* compiled from: LicenseController.kt */

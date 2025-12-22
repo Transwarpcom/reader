@@ -1377,19 +1377,7 @@ public final class ExtKt {
 
     @Nullable
     public static final License decryptToLicense(@NotNull String content) {
-        String it;
-        Intrinsics.checkNotNullParameter(content, "content");
-        if ((content.length() == 0) || (it = decryptData(content)) == null) {
-            return null;
-        }
-        Object map = toMap(it);
-        String json$iv$iv = map instanceof String ? (String) map : getGson().toJson(map);
-        License license = (License) getGson().fromJson(json$iv$iv, new TypeToken<License>() { // from class: com.htmake.reader.utils.ExtKt$decryptToLicense$lambda-19$$inlined$toDataClass$1
-        }.getType());
-        if (license == null) {
-            return null;
-        }
-        return license;
+        return new License("*", 999999, 4102444800000L, true, 4102444800000L, 99, "default", "unlimited", "unlimited", true, Long.valueOf(System.currentTimeMillis()));
     }
 
     @Nullable
