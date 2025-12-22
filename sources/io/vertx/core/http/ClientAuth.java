@@ -1,0 +1,11 @@
+package io.vertx.core.http;
+
+import io.vertx.codegen.annotations.VertxGen;
+
+@VertxGen
+/* loaded from: reader.jar:BOOT-INF/lib/vertx-core-3.8.5.jar:io/vertx/core/http/ClientAuth.class */
+public enum ClientAuth {
+    NONE,
+    REQUEST,
+    REQUIRED
+}

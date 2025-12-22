@@ -1,0 +1,45 @@
+package kotlin.reflect.jvm.internal.impl.descriptors.runtime.structure;
+
+import java.lang.reflect.Method;
+import kotlin.jvm.functions.Function1;
+import kotlin.jvm.internal.FunctionReference;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.jvm.internal.Reflection;
+import kotlin.reflect.KDeclarationContainer;
+import org.jetbrains.annotations.NotNull;
+import org.springframework.cglib.core.Constants;
+
+/* compiled from: ReflectJavaClass.kt */
+/* loaded from: reader.jar:BOOT-INF/lib/kotlin-reflect-1.5.21.jar:kotlin/reflect/jvm/internal/impl/descriptors/runtime/structure/ReflectJavaClass$methods$2.class */
+/* synthetic */ class ReflectJavaClass$methods$2 extends FunctionReference implements Function1<Method, ReflectJavaMethod> {
+    public static final ReflectJavaClass$methods$2 INSTANCE = new ReflectJavaClass$methods$2();
+
+    ReflectJavaClass$methods$2() {
+        super(1);
+    }
+
+    @Override // kotlin.jvm.functions.Function1
+    @NotNull
+    public final ReflectJavaMethod invoke(@NotNull Method p0) {
+        Intrinsics.checkNotNullParameter(p0, "p0");
+        return new ReflectJavaMethod(p0);
+    }
+
+    @Override // kotlin.jvm.internal.CallableReference
+    @NotNull
+    public final String getSignature() {
+        return "<init>(Ljava/lang/reflect/Method;)V";
+    }
+
+    @Override // kotlin.jvm.internal.CallableReference, kotlin.reflect.KCallable
+    @NotNull
+    public final String getName() {
+        return Constants.CONSTRUCTOR_NAME;
+    }
+
+    @Override // kotlin.jvm.internal.CallableReference
+    @NotNull
+    public final KDeclarationContainer getOwner() {
+        return Reflection.getOrCreateKotlinClass(ReflectJavaMethod.class);
+    }
+}

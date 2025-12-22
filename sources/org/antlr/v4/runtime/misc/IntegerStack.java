@@ -1,0 +1,27 @@
+package org.antlr.v4.runtime.misc;
+
+/* loaded from: reader.jar:BOOT-INF/lib/antlr4-runtime-4.7.2.jar:org/antlr/v4/runtime/misc/IntegerStack.class */
+public class IntegerStack extends IntegerList {
+    public IntegerStack() {
+    }
+
+    public IntegerStack(int capacity) {
+        super(capacity);
+    }
+
+    public IntegerStack(IntegerStack list) {
+        super(list);
+    }
+
+    public final void push(int value) {
+        add(value);
+    }
+
+    public final int pop() {
+        return removeAt(size() - 1);
+    }
+
+    public final int peek() {
+        return get(size() - 1);
+    }
+}
