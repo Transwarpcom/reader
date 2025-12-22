@@ -1,9 +1,0 @@
-package kotlin.reflect.jvm.internal.calls;
-
-import kotlin.Metadata;
-
-/* compiled from: Caller.kt */
-@Metadata(mv = {1, 5, 1}, k = 1, d1 = {"��\n\n\u0002\u0018\u0002\n\u0002\u0010��\n��\bf\u0018��2\u00020\u0001¨\u0006\u0002"}, d2 = {"Lkotlin/reflect/jvm/internal/calls/BoundCaller;", "", "kotlin-reflection"})
-/* loaded from: reader.jar:BOOT-INF/lib/kotlin-reflect-1.5.21.jar:kotlin/reflect/jvm/internal/calls/BoundCaller.class */
-public interface BoundCaller {
-}
